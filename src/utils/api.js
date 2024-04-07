@@ -46,7 +46,7 @@ function Api(urls = '') {
                 dispatch(tokenExpired());
             }
             return Promise.reject(error);
-        }
+        },
     );
 
     return { requests: apiInstance };
