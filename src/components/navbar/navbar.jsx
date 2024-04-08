@@ -58,7 +58,7 @@ function NavbarComp() {
     
                     <Nav className="ms-auto drop">
                         <Nav.Link href="/" className="nav-link mx-3 nav-item">Home</Nav.Link>
-                        <Nav.Link href="#" className="nav-link mx-3 nav-item">Menu</Nav.Link>
+                        <Nav.Link href="/menu" className="nav-link mx-3 nav-item">Menu</Nav.Link>
                         <Nav.Link href="#" className="nav-link mx-3 nav-item">Services</Nav.Link>
                         <Nav.Link href="#" className="nav-link mx-3 nav-item">About</Nav.Link>
                         <Nav.Link href="#" className="nav-link mx-3 nav-item">Contact Us</Nav.Link>
