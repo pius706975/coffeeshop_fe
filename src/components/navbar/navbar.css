@@ -1,0 +1,121 @@
+.nav-app * {
+    /* background: none; */
+    background-color: #795033;
+}
+
+.nav-app {
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.icon-no-border {
+    border: none;
+}
+
+.scrolled {
+    background-color: #795033;
+}
+
+.signin-btn {
+    border: 3px solid #FF7C25;
+    width: 157px;
+    border-radius: 10px;
+    color: #FF7C25;
+    padding: 5px;
+    background: none;
+    font-weight: bold;
+    transition: color 0.2s, background-color 0.2s;
+}
+.signin-btn:hover {
+    color: white;
+    background-color: #FF7C25;
+}
+
+.signin-btn:active {
+    background-color: #ffb07c;
+}
+
+.signup-btn {
+    border: 3px solid #FF7C25;
+    width: 157px;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    background: #FF7C25;
+    font-weight: bold;
+    transition: color 0.2s, background 0.2s;
+}
+.signup-btn:hover {
+    color: #FF7C25;
+    background: none;
+}
+
+.signup-btn:active {
+    background-color: #ffb07c;
+}
+
+.nav-item {
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.2s, color 0.2s;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.nav-item:hover {
+    width: fit-content;
+    background-color: #7C492C;
+    border-radius: 10px;
+}
+
+.nav-item:active{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.dropdown-container .dd-item, .dd-logout {
+    color:  white;
+}
+
+.dd-item, .dd-logout {
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dd-item:hover {
+    background-color: #a77653;
+    color: white;
+    border-radius: 10px;
+}
+
+.dd-logout:hover {
+    background-color: #a77653;
+    color: #ff6a00;
+    border-radius: 10px;
+}
+
+.toogle-menu::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler-icon {
+        background-color: white; /* Atur warna toggle */
+    }
+
+    .navbar-toggler {
+        border-color: white; /* Atur warna border toggle jika diperlukan */
+    }
+}
