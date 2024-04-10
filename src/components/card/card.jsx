@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { BsStar } from 'react-icons/bs'
 import { Card, Button } from "react-bootstrap"
 import './card.css'
 import { useNavigate } from "react-router-dom"
@@ -34,7 +33,7 @@ function CardDetail(props) {
     }, [])
 
     const detail = () => {
-        navigate(`/product/detail/${props.id}`)
+        navigate(`/menu/detail/${props.id}`)
     }
 
     return (
