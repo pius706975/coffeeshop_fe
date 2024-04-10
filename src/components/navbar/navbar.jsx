@@ -19,6 +19,7 @@ function NavbarComp() {
     const api  = Api()
     const {isAuth} = useSelector((state)=>state.users)
     const [user, setUsers] = useState('')
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const getUser = ()=>{
         api.requests({
@@ -27,6 +28,9 @@ function NavbarComp() {
         }).then((res)=>{
             const data = res.data
             setUsers(data)
+            if (data.role_data.name === 'Admin' || data.role_data.name === 'admin') {
+                setIsAdmin(true)
+            }
             console.log(data);
         }).catch((err)=>{
             console.log(err.message);
@@ -83,8 +87,11 @@ function NavbarComp() {
                                     <Dropdown.Menu className="profile-menu">
                                         <Dropdown.Item className="dd-item" href="/profile">Profile</Dropdown.Item>
 
-                                        <Dropdown.Item className="dd-item" href="/cart">Cart</Dropdown.Item>
-
+                                        {!isAdmin ? (
+                                            <Dropdown.Item className="dd-item" href="/cart">Cart</Dropdown.Item>
+                                        ):(
+                                            <Dropdown.Item className="dd-item" href="/dashboard">Dashboard</Dropdown.Item>
+                                        )}
 
                                         <div style={{marginLeft: '15px', marginRight: '15px'}}>
                                             <Dropdown.Divider/>

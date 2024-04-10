@@ -5,6 +5,7 @@ import SignUp from './pages/signup/signup';
 import SignIn from './pages/signin/signin';
 import Profile from './pages/profile/profile';
 import Menu from './pages/menu/menu';
+import ProductDetail from './pages/menu/product.detail';
 
 function appRoutes() {
     return (
@@ -15,6 +16,7 @@ function appRoutes() {
                 <Route path="/signin" element={<SignIn/>}/>
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/menu" element={<Menu/>}/>
+                <Route path="/menu/detail/:id" element={<ProductDetail/>}/>
             </Routes>
         </Router>
     )
