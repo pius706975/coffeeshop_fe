@@ -1,0 +1,106 @@
+.profile * {
+    background: none;
+}
+
+.user-profile {
+    display: flex;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url('./images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+
+.profile-data {
+    text-align: center;
+    width: 100%;
+}
+
+.profile-data .img-data {
+    border: 3px solid #ff7614;
+}
+
+.change-pic {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.change-pic:hover {
+    color: #ff7614;
+}
+
+.change-pic:active {
+    color: yellow;
+}
+
+.profile-btns {
+    text-align: center;
+}
+
+.update-profile-btn, .update-password-btn, .logout-btn {
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
+
+.update-profile-btn {
+    width: 100%;
+    background-color: #ff7614;
+    border: 3px solid #ff7614;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.update-profile-btn:hover {
+    background-color: white;
+    color: #ff7614;
+}
+
+.update-password-btn {
+    width: 100%;
+    background-color: #ff7614;
+    border: 3px solid #ff7614;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.update-password-btn:hover {
+    background-color: white;
+    color: #ff7614;
+}
+
+.logout-btn {
+    width: 100%;
+    border: rgb(53, 53, 53) solid 3px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid #ff7614;
+}
+
+.update-profile-btn:active, .update-password-btn:active, .logout-btn:active {
+    background-color: yellow;
+    color: #ff7614;
+}
+
+.in-modal {
+    background-color: #ffa564;
+}
+
+.img-input {
+    border-radius: 10px;
+}
+
+.new-data-form {
+    color: black;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}

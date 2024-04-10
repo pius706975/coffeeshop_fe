@@ -1,0 +1,210 @@
+.home-app * {
+    background: none;
+}
+
+.home-banner {
+    background-image: url('./images/bg1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+        /* for responsive position in the center of the screen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.home-banner-container {
+    max-width: 1700px;
+    width: 100%;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.home-banner-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.home-banner-content .home-banner-left-side {
+    max-width: 550px;
+    min-width: 270px;
+    overflow: hidden;
+    margin: 40px;
+}
+
+.banner-title {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 96px;
+}
+
+.span-title {
+    color: #ff7c25;
+}
+
+.banner-paragraph {
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.span-paragraph1, .span-paragraph2 {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.span-paragraph1 {
+    color: #ff7c25;
+}
+
+.banner-order-btn {
+    background-color: #7C492C;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    color: white;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.banner-order-btn:hover {
+    background-color: white;
+    color: #7C492C;
+}
+
+.banner-menu-btn {
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    color: #7C492C;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.banner-menu-btn:hover {
+    background-color: #7C492C;
+    color: white;
+}
+
+.home-banner-container {
+    max-width: 1700px;
+    width: 100%;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.home-banner-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.home-banner-content .home-banner-left-side {
+    max-width: 550px;
+    min-width: 270px;
+    overflow: hidden;
+    margin: 40px;
+}
+
+.banner-title {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 96px;
+}
+
+.span-title {
+    color: #ff7c25;
+}
+
+.banner-paragraph {
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.span-paragraph1, .span-paragraph2 {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.span-paragraph1 {
+    color: #ff7c25;
+}
+
+.banner-order-btn {
+    background-color: #7C492C;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    color: white;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.banner-order-btn:hover {
+    background-color: white;
+    color: #7C492C;
+}
+
+.banner-menu-btn {
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    color: #7C492C;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.banner-menu-btn:hover {
+    background-color: #7C492C;
+    color: white;
+}
+
+@media (max-width: 665px) {
+    .banner-title {
+        font-size: 48px; 
+        color: black;
+    }
+
+    .banner-paragraph {
+        font-size: 15px;
+        color: black;
+    }
+  
+    .home-banner-content {
+        padding: 15px; 
+    }
+}  

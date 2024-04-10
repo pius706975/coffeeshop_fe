@@ -1,0 +1,66 @@
+.menu * {
+    background: none;
+}
+
+.all-menu {
+    display: flex;
+    background-image: url('./images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+    color: white;
+    padding-top: 10%;
+}
+
+.menu-content {
+    background: none;
+}
+
+.product-search {
+    border: 3px solid #795033;
+    border-right: none;
+    /* border-left: 3px solid #795033;
+    border-top: 3px solid #795033;
+    border-bottom: 3px solid #795033; */
+}
+
+.search-product-btn {
+    color: white;
+    width: 50px;
+    background-color: black;
+    border-radius: 10px;
+    border: 3px solid #795033;
+    border-left: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.search-product-btn:hover {
+    background-color: #795033;
+}
+
+.search-product-btn:active {
+    background-color: #ff7614;
+    color: black;
+}
+
+@media (max-width: 665px) {
+    .all-menu {
+        display: flex;
+        background-image: url('./images/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Kadwa", serif;
+        font-weight: 400;
+        font-style: normal;
+        align-items: center;
+        justify-content: center;
+        /* height: 100vh; */
+        color: white;
+        padding-top: 25%;
+    }
+}  
