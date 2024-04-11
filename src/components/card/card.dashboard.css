@@ -1,0 +1,9 @@
+/* Detail Card and home card*/
+
+.detail-card {
+    transition: transform 0.2s;
+    background: linear-gradient(to bottom, #9bc0c930 0%, #9bc0c930 40%, #795033 40%, #795033 100%);
+}
+.detail-card:hover {
+    transform: scale(1.03);
+}

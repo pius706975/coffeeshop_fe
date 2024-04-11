@@ -10,7 +10,6 @@ import Api from "../../utils/api"
 import CardDetail from "../../components/card/card"
 
 function Menu() {
-    const navigate = useNavigate()
     const api = Api()
 
     const [product, setProduct] = useState([])
@@ -22,7 +21,7 @@ function Menu() {
         }).then((res)=>{
             const data = res.data
             setProduct(data)
-            console.log(data);
+            // console.log(data);
         }).catch((err)=>{
             alert(err.message)
         })

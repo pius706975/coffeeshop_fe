@@ -1,0 +1,52 @@
+.dashboard * {
+    background: none;
+}
+
+.all-item {
+    display: flex;
+    background-image: url('./images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+    color: white;
+    padding-top: 10%;
+}
+
+.dashboard-content .title {
+    align-content: space-between;
+}
+
+.dashboard-content .dash-btn button {
+    width: 200%;
+    color:  white;
+    padding: 5px;
+    background-color: #795033;
+    border-radius: 10px;
+    border: none;
+}
+
+@media (max-width: 665px) {
+    .all-item {
+        display: flex;
+        background-image: url('./images/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Kadwa", serif;
+        font-weight: 400;
+        font-style: normal;
+        align-items: center;
+        justify-content: center;
+        /* height: 100vh; */
+        color: white;
+        padding-top: 25%;
+    }
+
+    .dashboard-content .title {
+        text-align: center;
+    }
+}  

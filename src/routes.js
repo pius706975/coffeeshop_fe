@@ -6,6 +6,8 @@ import SignIn from './pages/signin/signin';
 import Profile from './pages/profile/profile';
 import Menu from './pages/menu/menu';
 import ProductDetail from './pages/menu/product.detail';
+import Dashboard from './pages/admin_dashboard/dashboard';
+import EditProduct from './pages/admin_dashboard/edit';
 
 function appRoutes() {
     return (
@@ -17,6 +19,8 @@ function appRoutes() {
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/menu" element={<Menu/>}/>
                 <Route path="/menu/detail/:id" element={<ProductDetail/>}/>
+                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/dashboard/detail/:id" element={<EditProduct/>}/>
             </Routes>
         </Router>
     )

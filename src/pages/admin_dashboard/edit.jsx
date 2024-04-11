@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.js'
-import './product.detail.css'
+import './edit.css'
+import Api from "../../utils/api"
 import { useParams } from "react-router-dom"
-import Api from '../../utils/api'
-import NavbarComp from '../../components/navbar/navbar'
-import currency from '../../utils/format.currency'
-import { GrLike } from "react-icons/gr";
+import NavbarComp from "../../components/navbar/navbar"
 
-function ProductDetail() {
+function EditProduct() {
     const [product, setProduct] = useState({})
     const params = useParams()
     const api = Api()
-    
+
     const getProductDetail = ()=>{
         api.requests({
             method: 'GET',
@@ -28,18 +26,19 @@ function ProductDetail() {
 
     useEffect(()=>{
         getProductDetail()
-        document.title = 'Product detail'
+        document.title = 'Dashboard detail'
     }, [])
 
     return (
-        <div className="prodetail-app">
+        <div className="edit-app">
             <NavbarComp/>
 
-            <div className="product-details">
-                <div className="details">
-                    <div className="left-detail">
-                        <div className="big-img">
-                            <img src={product.image} alt="cappuccino" />
+            <div className="edit-details">
+                <div className="detail">
+                    <div className="dash-left">
+                    <p>TODO: Fix admin dashboard detail page</p>
+                        <div className="detail-img">
+                            <img src={product.image} alt="" />
                         </div>
                     </div>
 
@@ -53,13 +52,12 @@ function ProductDetail() {
                             
                             <p><span className="fw-bold text-danger">Sold</span> {product.sold}</p>
 
-                            <h3 className="fw-bold text-success">{currency(product.price)}</h3>
+                            <h3 className="fw-bold text-success">{product.price}</h3>
                         </div>
 
                         <div className="btns">
                             <button className="order-btn">Order</button>
                             <button className="cart-btn">Cart</button>
-                            <button className="like-btn"><GrLike style={{background: 'none'}}/> Like</button>
                         </div>
                     </div>
                 </div>
@@ -68,4 +66,4 @@ function ProductDetail() {
     )
 }
 
-export default ProductDetail
+export default EditProduct
