@@ -1,0 +1,60 @@
+.edit-details {
+    display: flex;
+    font-family: "Kadwa", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url('./images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+
+.detail, .dash-left{
+    background: none;
+}
+
+.detail .detail-img {
+    background: linear-gradient(to bottom, #1b1613 0%, #1b1613 50%, #795033 50%, #795033 100%);
+    align-content: center;
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    padding-bottom: 30px;
+    box-shadow: 0 0 5px #00000015;
+    border-radius: 10px;
+}
+
+.detail-img img {
+    border-radius: 10px;
+    width: 300px;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+
+.detail .box {
+    background: none;
+    max-width: 800px;
+    min-width: 290px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.box .row {
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.box .row h1, p, h3, .btns {
+    background: none;
+}
