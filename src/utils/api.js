@@ -36,7 +36,6 @@ function Api(urls = '') {
         (response) => response,
         (error) => {
             if (error.response && error.response.data.error.code === 400 && error.response.data.error && error.response.data.error.message === 'jwt expired') {
-                // Menangkap response yang menunjukkan token expired
                 dispatch(tokenExpired());
             }
             return Promise.reject(error);

@@ -9,7 +9,7 @@ function CardDetail(props) {
     const navigate = useNavigate()
     const [cardWidth, setCardWidth] = useState(250)
     const [fontSize, setFontSize] = useState({ title: 13, price: 15, rating: 15, button: 15 })
-    const [imageWidth, setImageWidth] = useState(50)
+    const [imageWidth, setImageWidth] = useState(10)
 
     useEffect(() => {
         const handleResize = () => {
