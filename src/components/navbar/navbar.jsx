@@ -28,10 +28,10 @@ function NavbarComp() {
         }).then((res)=>{
             const data = res.data
             setUsers(data)
-            if (data.role_data.name === 'Admin' || data.role_data.name === 'admin') {
+            if (data.role_data.name === 'Admin' || data.role_data.name === 'admin' || data.role_data.id === 2) {
                 setIsAdmin(true)
             }
-            console.log(data);
+            // console.log(data);
         }).catch((err)=>{
             console.log(err.message);
         })

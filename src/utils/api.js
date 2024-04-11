@@ -35,18 +35,11 @@ function Api(urls = '') {
     apiInstance.interceptors.response.use(
         (response) => response,
         (error) => {
-            if (
-                error.response &&
-                error.response.status === 500 &&
-                error.response.data &&
-                error.response.data.status === 500 &&
-                error.response.data &&
-                error.response.data.result.name === 'TokenExpiredError'
-            ) {
+            if (error.response && error.response.data.error.code === 400 && error.response.data.error && error.response.data.error.message === 'jwt expired') {
                 dispatch(tokenExpired());
             }
             return Promise.reject(error);
-        },
+        }
     );
 
     return { requests: apiInstance };

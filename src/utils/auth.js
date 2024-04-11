@@ -16,9 +16,9 @@ const withAuth = (Component, role) => {
         }
 
         const { response } = useSelector((state) => state.api);
-        if (response && response.status === 500 && response.data && response.data.name === 'TokenExpiredError') {
+        if (response && response.status === 400 && response.data && response.data.name === 'TokenExpiredError') {
             dispatch(tokenExpired());
-            return <Navigate to="/login" />;
+            return <Navigate to="/" />;
         }
 
         return <Component {...props} />
