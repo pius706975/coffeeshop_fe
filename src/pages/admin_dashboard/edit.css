@@ -3,13 +3,15 @@
     font-family: "Kadwa", serif;
     font-weight: 400;
     font-style: normal;
-    background-image: url('./images/bg.png');
+    /* background-image: url('./images/bg.png'); */
+    background-color: white; /*dont forget to change this element*/
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
     color: white;
+    padding-top: 10%;
 }
 
 .detail, .dash-left{
@@ -57,4 +59,48 @@
 
 .box .row h1, p, h3, .btns {
     background: none;
+}
+
+.edit-form {
+    background: none;
+}
+
+.btns button {
+    width: 33%;
+    padding: 10px;
+    text-align: center;
+    border: none;
+}
+
+.edit-btn {
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 10px 0 0 10px;
+    background-color: #ff7c25;
+}
+
+.edit-btn:hover {
+    background-color: #795033;
+    color: white;
+}
+
+.edit-btn:active {
+    background-color: #c99169;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #795033;
+    transition: background-color 0.2s, color 0.2s;
+    color: white;
+    border-radius: 0 10px 10px 0;
+}
+
+.delete-btn:hover {
+    background-color: #ff7c25;
+    color: black;
+}
+
+.delete-btn:active {
+    background-color: #ffa56a;
+    color: black;
 }
