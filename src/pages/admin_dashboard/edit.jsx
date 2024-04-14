@@ -3,49 +3,72 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import './edit.css'
 import Api from "../../utils/api"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import NavbarComp from "../../components/navbar/navbar"
 import { Form } from "react-bootstrap"
 
 function EditProduct() {
+    const navigate = useNavigate()
     const params = useParams()
     const api = Api()
-    const [product, setProduct] = useState({})
-    const [category, setCategory] = useState({})
+    const [product, setProduct] = useState([])
+    const [category, setCategory] = useState([])
 
-    const getProductDetail = ()=>{
-        api.requests({
-            method: 'GET',
-            url: `/product/${params.id}`
-        }).then((res)=>{
-            const data = res.data
-            setProduct(data)
-            console.log(data);
-        }).catch((err)=>{
-            alert(err.message)
-        })
+    const onChangeInput = (event)=>{
+        event.preventDefault()
+        const tmpData = {...product}
+        tmpData[event.target.name] = event.target.value
+        setProduct(tmpData)
+        console.log(product);
+    }
+
+    const mainFunc = {
+        getProductDetail: ()=>{
+            api.requests({
+                method: 'GET',
+                url: `/product/${params.id}`
+            }).then((res)=>{
+                const data = res.data
+                setProduct(data)
+                console.log(data);
+            }).catch((err)=>{
+                alert(err.message)
+            })
+        },
+
+        getCategory: ()=>{
+            api.requests({
+                method: 'GET',
+                url: `/product-category/`
+            }).then((res)=>{
+                const data = res.data
+                setCategory(data)
+                console.log(data);
+            }).catch((err)=>{
+                alert(err.message)
+            })
+        },
+
+        updateProduct: ()=>{            
+            api.requests({
+                method: 'PUT',
+                url: `/product/${params.id}`,
+                data: product
+            }).then(()=>{
+                alert('Product data updated successfully')
+            }).catch((err)=>{
+                alert(err.message)
+            })
+        },
     }
 
     useEffect(()=>{
-        getProductDetail()
+        mainFunc.getProductDetail()
         document.title = 'Dashboard detail'
     }, [])
 
-    const getCategory = ()=>{
-        api.requests({
-            method: 'GET',
-            url: `/product-category/`
-        }).then((res)=>{
-            const data = res
-            setCategory(data)
-            console.log(data);
-        }).catch((err)=>{
-            alert(err.message)
-        })
-    }
-
     useEffect(()=>{
-        getCategory()
+        mainFunc.getCategory()
     }, [])
 
     return (
@@ -55,7 +78,7 @@ function EditProduct() {
             <div className="edit-details">
                 <div className="detail">
                     <div className="dash-left">
-                    <p className="text-dark">TODO: Fix admin dashboard detail page</p>
+                    <p className="text-dark" style={{visibility: 'hidden'}}>TODO: Fix admin dashboard detail page</p>
                         <div className="detail-img">
                             <img src={product.image} alt="" />
                         </div>
@@ -67,38 +90,32 @@ function EditProduct() {
                                 <Form className="bg-transparent">
                                     <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
                                         <Form.Label className="bg-transparent text-dark">Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Product name" defaultValue={product.name}/>
+                                        <Form.Control type="text" name="name" placeholder="Product name" defaultValue={product.name} onChange={onChangeInput}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
                                         <Form.Label className="bg-transparent text-dark">Description</Form.Label>
-                                        <Form.Control as="textarea" rows={3} placeholder="Description" defaultValue={product.description}/>
+                                        <Form.Control as="textarea" name="description" rows={4} placeholder="Description" defaultValue={product.description} onChange={onChangeInput}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
                                         <Form.Label className="bg-transparent text-dark">Price</Form.Label>
-                                        <Form.Control type="text" placeholder="Price" defaultValue={product.price}/>
+                                        <Form.Control type="text" name="price" placeholder="Price" defaultValue={product.price} onChange={onChangeInput}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
-                                        <Form.Label className="bg-transparent text-dark">Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Product name" defaultValue={product.name}/>
-                                    </Form.Group>
+                                    <Form.Select aria-label="Default select example" name="category_id" value={product.category_id} onChange={onChangeInput}>
+                                        {category.map((data)=>{
+                                            return (
+                                                <option key={data.id} value={data.id}>{data.name}</option>     
+                                            )
+                                        })}
+                                    </Form.Select>
                                 </Form>
                             </div>
-                            {/* <h1 className="fw-bold">{product.name}</h1>
-
-                            <p style={{visibility: 'hidden'}}>m</p>
-
-                            <p>"{product.description}"</p>
-                            
-                            <p><span className="fw-bold text-danger">Sold</span> {product.sold}</p>
-
-                            <h3 className="fw-bold text-success">{product.price}</h3> */}
                         </div>
 
                         <div className="btns">
-                            <button className="edit-btn">Edit</button>
+                            <button className="edit-btn" onClick={mainFunc.updateProduct}>Save</button>
                             <button className="delete-btn">Delete</button>
                         </div>
                     </div>
