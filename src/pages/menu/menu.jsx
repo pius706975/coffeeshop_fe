@@ -5,7 +5,6 @@ import './menu.css'
 import NavbarComp from "../../components/navbar/navbar"
 import { FormControl, InputGroup } from "react-bootstrap"
 import {BsSearch} from 'react-icons/bs'
-import { useNavigate } from "react-router-dom"
 import Api from "../../utils/api"
 import CardDetail from "../../components/card/card"
 

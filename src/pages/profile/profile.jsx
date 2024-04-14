@@ -55,7 +55,7 @@ function Profile() {
                 alert('Data is updated successfully');
                 window.location.reload(navigate('/profile'))
             }).catch((err)=>{
-                alert(err)
+                alert(err.message)
             })
         },
 
