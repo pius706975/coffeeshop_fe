@@ -3,8 +3,8 @@
     font-family: "Kadwa", serif;
     font-weight: 400;
     font-style: normal;
-    /* background-image: url('./images/bg.png'); */
-    background-color: white; /*dont forget to change this element*/
+    background-image: url('./images/bg.png');
+    /* background-color: white; dont forget to change this element */
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;

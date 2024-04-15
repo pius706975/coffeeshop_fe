@@ -21,7 +21,7 @@ function EditProduct() {
         const tmpData = {...product}
         tmpData[event.target.name] = event.target.value
         setProduct(tmpData)
-        console.log(product);
+        // console.log(product);
     }
 
     const mainFunc = {
@@ -32,7 +32,7 @@ function EditProduct() {
             }).then((res)=>{
                 const data = res.data
                 setProduct(data)
-                console.log(data);
+                // console.log(data);
             }).catch((err)=>{
                 alert(err.message)
             })
@@ -45,7 +45,7 @@ function EditProduct() {
             }).then((res)=>{
                 const data = res.data
                 setCategory(data)
-                console.log(data);
+                // console.log(data);
             }).catch((err)=>{
                 alert(err.message)
             })
@@ -83,7 +83,7 @@ function EditProduct() {
                 <div className="edit-details">
                     <div className="detail">
                         <div className="dash-left">
-                        <p className="text-dark" style={{visibility: 'hidden'}}>TODO: Fix admin dashboard detail page</p>
+                        <p className="text-light" style={{visibility: 'hidden'}}>TODO: Fix admin dashboard detail page</p>
                             <div className="detail-img">
                                 <img src={product.image} alt="" />
                             </div>
@@ -94,27 +94,30 @@ function EditProduct() {
                                 <div className="edit-form">
                                     <Form className="bg-transparent">
                                         <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
-                                            <Form.Label className="bg-transparent text-dark">Name</Form.Label>
+                                            <Form.Label className="bg-transparent text-light">Name</Form.Label>
                                             <Form.Control type="text" name="name" placeholder="Product name" defaultValue={product.name} onChange={onChangeInput}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
-                                            <Form.Label className="bg-transparent text-dark">Description</Form.Label>
+                                            <Form.Label className="bg-transparent text-light">Description</Form.Label>
                                             <Form.Control as="textarea" name="description" rows={4} placeholder="Description" defaultValue={product.description} onChange={onChangeInput}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
-                                            <Form.Label className="bg-transparent text-dark">Price</Form.Label>
+                                            <Form.Label className="bg-transparent text-light">Price</Form.Label>
                                             <Form.Control type="text" name="price" placeholder="Price" defaultValue={product.price} onChange={onChangeInput}/>
                                         </Form.Group>
 
-                                        <Form.Select aria-label="Default select example" name="category_id" value={product.category_id} onChange={onChangeInput}>
-                                            {category.map((data)=>{
-                                                return (
-                                                    <option key={data.id} value={data.id}>{data.name}</option>     
-                                                )
-                                            })}
-                                        </Form.Select>
+                                        <Form.Group className="mb-3 bg-transparent" controlId="formGroupText">
+                                            <Form.Label className="bg-transparent text-light">Category</Form.Label>
+                                            <Form.Select aria-label="Default select example" name="category_id" value={product.category_id} onChange={onChangeInput}>
+                                                {category.map((data)=>{
+                                                    return (
+                                                        <option key={data.id} value={data.id}>{data.name}</option>     
+                                                    )
+                                                })}
+                                            </Form.Select>
+                                        </Form.Group>
                                     </Form>
                                 </div>
                             </div>
