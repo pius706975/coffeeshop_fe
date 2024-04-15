@@ -23,7 +23,6 @@ function Dashboard() {
         category_id: ''
     })
 
-    // TODO: fix add item
     const onChangeInput = (event)=>{
         event.preventDefault()
 
@@ -40,7 +39,7 @@ function Dashboard() {
             }).then((res)=>{
                 const data = res.data
                 setCategory(data)
-                console.log(data);
+                // console.log(data);
             }).catch((err)=>{
                 alert(err.message)
             })
@@ -53,7 +52,7 @@ function Dashboard() {
             }).then((res)=>{
                 const data = res.data
                 setProduct(data)
-                console.log(data);
+                // console.log(data);
             }).catch((err)=>{
                 alert(err.message)
             })
@@ -66,7 +65,7 @@ function Dashboard() {
                 data: newProduct
             }).then((res)=>{
                 alert('Product added successfully')
-                // navigate(`/dashboard/detail/${params.id}`)
+                navigate(`/dashboard/detail/${res.data.id}`)
             }).catch((err)=>{
                 alert(err.message)
             })
@@ -140,6 +139,7 @@ function Dashboard() {
                                             </Form.Group>
 
                                             <Form.Select aria-label="Default select example" name="category_id" value={product.category_id} onChange={onChangeInput}>
+                                            <option>...</option> 
                                                 {category.map((data)=>{
                                                     return (
                                                         <option key={data.id} value={data.id}>{data.name}</option>     
