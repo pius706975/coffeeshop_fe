@@ -5,7 +5,7 @@ import './edit.css'
 import Api from "../../utils/api"
 import { useNavigate, useParams } from "react-router-dom"
 import NavbarComp from "../../components/navbar/navbar"
-import { Form } from "react-bootstrap"
+import { Form, Modal } from "react-bootstrap"
 import { useSelector } from "react-redux"
 
 function EditProduct() {
@@ -62,6 +62,18 @@ function EditProduct() {
                 alert(err.message)
             })
         },
+
+        deleteProduct: ()=>{
+            api.requests({
+                method: 'PUT',
+                url: `/product/delete/${params.id}`
+            }).then((res)=>{
+                alert('Product deleted successfully')
+                navigate('/dashboard')
+            }).catch((err)=>{
+                alert(err.message)
+            })
+        }
     }
 
     useEffect(()=>{
@@ -72,6 +84,33 @@ function EditProduct() {
     useEffect(()=>{
         mainFunc.getCategory()
     }, [])
+
+    const [imgModal, setImgModal] = useState(false)
+    const IMFunc = {
+        showImgModal: ()=>{
+            setImgModal(true)
+        },
+        saveImg: ()=>{
+            setImgModal(false)
+        },
+        cancelChangeImg: ()=>{
+            setImgModal(false)
+        }
+    }
+
+    const [deleteModal, setDeleteModal] = useState(false)
+    const delFunc = {
+        showModal: ()=>{
+            setDeleteModal(true)
+        },
+        save: ()=>{
+            mainFunc.deleteProduct()
+            setDeleteModal(false)
+        },
+        cancel: ()=>{
+            setDeleteModal(false)
+        }
+    }
 
     return (
         <div className="edit-app">
@@ -85,7 +124,27 @@ function EditProduct() {
                         <div className="dash-left">
                         <p className="text-light" style={{visibility: 'hidden'}}>TODO: Fix admin dashboard detail page</p>
                             <div className="detail-img">
-                                <img src={product.image} alt="" />
+                                <img src={product.image} alt="" onClick={IMFunc.showImgModal}/>
+
+                                <Modal show={imgModal} onHide={IMFunc.cancelChangeImg} aria-lableledby="contained-modal-title-vcenter" centered>
+                                    <Modal.Header closeButton className="in-modal">
+                                        <Modal.Title className="fw-bold" style={{background: 'none'}}>Change picture</Modal.Title>
+                                    </Modal.Header>
+
+                                    <Modal.Body className="in-modal">
+                                        <input type="file" className="img-input"/>
+                                    </Modal.Body>
+
+                                    <Modal.Footer className="in-modal">
+                                        <div className="d-flex" style={{background: 'none'}}>
+                                            <button className="logout-btn" onClick={delFunc.cancel}>Cancel</button>
+
+                                            <p style={{visibility: 'hidden'}}>m</p>
+
+                                            <button className="logout-btn" onClick={delFunc.save}>Save</button>
+                                        </div>
+                                    </Modal.Footer>
+                                </Modal>
                             </div>
                         </div>
 
@@ -124,7 +183,29 @@ function EditProduct() {
 
                             <div className="btns">
                                 <button className="edit-btn" onClick={mainFunc.updateProduct}>Save</button>
-                                <button className="delete-btn">Delete</button>
+                                <button className="delete-btn" onClick={delFunc.showModal}>Delete</button>
+                            </div>
+
+                            <div>
+                                <Modal show={deleteModal} onHide={delFunc.cancel} aria-lableledby="contained-modal-title-vcenter" centered>
+                                        <Modal.Header closeButton className="in-modal">
+                                            <Modal.Title className="fw-bold" style={{background: 'none'}}>Delete product</Modal.Title>
+                                        </Modal.Header>
+
+                                        <Modal.Body className="in-modal">
+                                            <p>Are you sure?</p>
+                                        </Modal.Body>
+
+                                        <Modal.Footer className="in-modal">
+                                            <div className="d-flex" style={{background: 'none'}}>
+                                                <button className="logout-btn" onClick={delFunc.cancel}>No</button>
+
+                                                <p style={{visibility: 'hidden'}}>m</p>
+
+                                                <button className="logout-btn" onClick={delFunc.save}>Yes</button>
+                                            </div>
+                                        </Modal.Footer>
+                                    </Modal>
                             </div>
                         </div>
                     </div>
